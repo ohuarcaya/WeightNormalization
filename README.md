@@ -1,5 +1,4 @@
 # Weight Normalization
-\\[ \mathbf{X} = \mathbf{Z} \mathbf{P^\mathsf{T}} \\]
 
 La normalización de los pesos de una red neuronal a través de la reparametrización de vectores pesos ocasiona una optimización del problema, además acelera la convergencia del descenso de gradiente estocástico. La reparameterización usada en la presente investigación se basa en el *batch normalization*, pero no introduce ninguna dependencia entre los ejemplos en un *minibatch*. Es decir que el presente método también puede aplicarse con éxito a modelos recurrentes como LSTMs y a aplicaciones sensibles al ruido como el aprendizaje de refuerzo profundo o modelos generativos, para los cuales la normalización por lotes es menos adecuada. La sobrecarga computacional del método es pequeña, de esta manera permite más pasos de optimización para ser usados en la misma cantidad de tiempo. Finalmente se presentará ejemplos donde se visualizará la  gran utilidad de este método a través de algunas aplicaciones.
 

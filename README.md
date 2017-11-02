@@ -17,8 +17,9 @@ Siguiendo este segundo enfoque para aproximar la optimización del gradiente nat
 
 Consideramos redes neuronales artificiales estándar donde el cálculo de cada neurona consiste en tomar una suma ponderada de características de entrada, seguida de una no linealidad elemental:
 
+<p align="center">
 ![1](https://latex.codecogs.com/gif.latex?y%20%3D%20%5Cphi%28w.x%20&plus;%20b%29)
-
+</p>
 
 donde ![](https://latex.codecogs.com/gif.latex?w) es un vector de peso k-dimensional, ![](https://latex.codecogs.com/gif.latex?b) es un término de polarización escalar, ![](https://latex.codecogs.com/gif.latex?x) es un vector k-dimensional de características de entrada, ![](https://latex.codecogs.com/gif.latex?%5Cphi%28.%29) denota una no linealidad elemental tal como el rectificador ![](https://latex.codecogs.com/gif.latex?max%28.%2C%200%29), y ![](https://latex.codecogs.com/gif.latex?y) denota la salida escalar de la neurona.
 

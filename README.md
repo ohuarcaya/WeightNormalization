@@ -1,5 +1,6 @@
-<!-- For styles with static names... -->
-<link href="{{ "/assets/css/style.css" | relative_url }}" rel="stylesheet">
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 # Weight Normalization

@@ -1,7 +1,5 @@
 # Weight Normalization
 
-$$ J(x) = \int{L(t, x, \dot{x}) dt} \$$
-
 La normalización de los pesos de una red neuronal a través de la reparametrización de vectores pesos ocasiona una optimización del problema, además acelera la convergencia del descenso de gradiente estocástico. La reparameterización usada en la presente investigación se basa en el *batch normalization*, pero no introduce ninguna dependencia entre los ejemplos en un *minibatch*. Es decir que el presente método también puede aplicarse con éxito a modelos recurrentes como LSTMs y a aplicaciones sensibles al ruido como el aprendizaje de refuerzo profundo o modelos generativos, para los cuales la normalización por lotes es menos adecuada. La sobrecarga computacional del método es pequeña, de esta manera permite más pasos de optimización para ser usados en la misma cantidad de tiempo. Finalmente se presentará ejemplos donde se visualizará la  gran utilidad de este método a través de algunas aplicaciones.
 
 # Introducción
@@ -19,7 +17,7 @@ Siguiendo este segundo enfoque para aproximar la optimización del gradiente nat
 
 Consideramos redes neuronales artificiales estándar donde el cálculo de cada neurona consiste en tomar una suma ponderada de características de entrada, seguida de una no linealidad elemental:
 
-\\[ y = \phi(w.x + b)\\]
+$$ y = \phi(w.x + b) $$
 
 
 donde $w$ es un vector de peso k-dimensional, $b$ es un término de polarización escalar, $x$ es un vector k-dimensional de características de entrada, $\phi(.)$ denota una no linealidad elemental tal como el rectificador $max(., 0)$, y $y$ denota la salida escalar de la neurona.
@@ -28,11 +26,10 @@ Después de asociar una función de pérdida a una o más salidas neuronales, di
 
 Con la intención de acelerar la convergencia de este procedimiento de optimización, la reparameterización de cada vector de peso $w$ en términos de un vector de parámetro $v$ y un parámetro escalar $g$ y realizar un descenso de gradiente estocástico con respecto a esos parámetros. La expresión del vector quedaría expresado de la siguiente forma:
 
-```Latex
-$$w = \frac{g}{||v||}v$$
-&oplus
-```
+$$
+w = \frac{g}{||v||}v
+$$
 
 donde $v$ es un vector k-dimensional, $g$ es un escalar, y $||v||$ denota la norma euclidiana de $v$. Esta reparameterización tiene el efecto de fijar la norma euclidiana del vector de peso $w$: ahora tenemos $||w|| = g$, independiente de los parámetros $v$.
 
-Investigaciones anteriores también desarrollaban la idea de normalizar el vector de peso, pero la optimización solo se realizaba mediante la parametrización de w, aplicando solamente la normalización después de cada paso de descenso de gradiente estocástico. Con el presente método se reparameteriza explícitamente el modelo y realizar un descenso de gradiente estocástico en los nuevos parámetros $v$, $g$ directamente. De esta forma se mejora el acondicionamiento del gradiente y conduce a una convergencia mejorada del procedimiento de optimización: Al desacoplar la norma del vector de peso(g) de la dirección del vector de peso (v/||v||), se acelera la convergencia de nuestra optimización de descenso de gradiente estocástico.
+Investigaciones anteriores también desarrollaban la idea de normalizar el vector de peso, pero la optimización solo se realizaba mediante la parametrización de w, aplicando solamente la normalización después de cada paso de descenso de gradiente estocástico. Con el presente método se reparameteriza explícitamente el modelo y realizar un descenso de gradiente estocástico en los nuevos parámetros $v$, $g$ directamente. De esta forma se mejora el acondicionamiento del gradiente y conduce a una convergencia mejorada del procedimiento de optimización: Al desacoplar la norma del vector de peso(g) de la dirección del vector de peso $(v/||v||)$, se acelera la convergencia de nuestra optimización de descenso de gradiente estocástico.

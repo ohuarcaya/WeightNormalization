@@ -17,9 +17,8 @@ Siguiendo este segundo enfoque para aproximar la optimización del gradiente nat
 
 Consideramos redes neuronales artificiales estándar donde el cálculo de cada neurona consiste en tomar una suma ponderada de características de entrada, seguida de una no linealidad elemental:
 
-```
-$$y = \phi(w.x + b)$$
-```
+\\[ y = \phi(w.x + b)\\]
+
 
 donde $w$ es un vector de peso k-dimensional, $b$ es un término de polarización escalar, $x$ es un vector k-dimensional de características de entrada, $\phi(.)$ denota una no linealidad elemental tal como el rectificador $max(., 0)$, y $y$ denota la salida escalar de la neurona.
 

@@ -18,7 +18,7 @@ Siguiendo este segundo enfoque para aproximar la optimización del gradiente nat
 Consideramos redes neuronales artificiales estándar donde el cálculo de cada neurona consiste en tomar una suma ponderada de características de entrada, seguida de una no linealidad elemental:
 
 <p align="center">
-![1](https://latex.codecogs.com/gif.latex?y%20%3D%20%5Cphi%28w.x%20&plus;%20b%29)
+  <img src="https://latex.codecogs.com/gif.latex?y%20%3D%20%5Cphi%28w.x%20&plus;%20b%29">
 </p>
 
 donde ![](https://latex.codecogs.com/gif.latex?w) es un vector de peso k-dimensional, ![](https://latex.codecogs.com/gif.latex?b) es un término de polarización escalar, ![](https://latex.codecogs.com/gif.latex?x) es un vector k-dimensional de características de entrada, ![](https://latex.codecogs.com/gif.latex?%5Cphi%28.%29) denota una no linealidad elemental tal como el rectificador ![](https://latex.codecogs.com/gif.latex?max%28.%2C%200%29), y ![](https://latex.codecogs.com/gif.latex?y) denota la salida escalar de la neurona.
@@ -27,8 +27,9 @@ Después de asociar una función de pérdida a una o más salidas neuronales, di
 
 Con la intención de acelerar la convergencia de este procedimiento de optimización, la reparameterización de cada vector de peso ![](https://latex.codecogs.com/gif.latex?w) en términos de un vector de parámetro ![](https://latex.codecogs.com/gif.latex?v) y un parámetro escalar ![](https://latex.codecogs.com/gif.latex?g) y realizar un descenso de gradiente estocástico con respecto a esos parámetros. La expresión del vector quedaría expresado de la siguiente forma:
 
-![](https://latex.codecogs.com/gif.latex?w%20%3D%20%5Cfrac%7Bg%7D%7B%7C%7Cv%7C%7C%7Dv)
-
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?w%20%3D%20%5Cfrac%7Bg%7D%7B%7C%7Cv%7C%7C%7Dv">
+</p>
 donde ![](https://latex.codecogs.com/gif.latex?v)  es un vector k-dimensional, ![](https://latex.codecogs.com/gif.latex?g) es un escalar, y ![](https://latex.codecogs.com/gif.latex?%7C%7Cv%7C%7C) denota la norma euclidiana de ![](https://latex.codecogs.com/gif.latex?v). Esta reparameterización tiene el efecto de fijar la norma euclidiana del vector de peso ![](https://latex.codecogs.com/gif.latex?w) : ahora tenemos ![](https://latex.codecogs.com/gif.latex?%7C%7Cw%7C%7C%20%3D%20g), independiente de los parámetros ![](https://latex.codecogs.com/gif.latex?v).
 
 Investigaciones anteriores también desarrollaban la idea de normalizar el vector de peso, pero la optimización solo se realizaba mediante la parametrización de ![](https://latex.codecogs.com/gif.latex?w), aplicando solamente la normalización después de cada paso de descenso de gradiente estocástico. Con el presente método se reparameteriza explícitamente el modelo y realizar un descenso de gradiente estocástico en los nuevos parámetros ![](https://latex.codecogs.com/gif.latex?v), ![](https://latex.codecogs.com/gif.latex?g) directamente. De esta forma se mejora el acondicionamiento del gradiente y conduce a una convergencia mejorada del procedimiento de optimización: Al desacoplar la norma del vector de peso ![](https://latex.codecogs.com/gif.latex?g) de la dirección del vector de peso ![](https://latex.codecogs.com/gif.latex?%28v/%7C%7Cv%7C%7C%29), se acelera la convergencia de nuestra optimización de descenso de gradiente estocástico.

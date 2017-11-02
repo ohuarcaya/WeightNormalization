@@ -20,11 +20,11 @@ Consideramos redes neuronales artificiales estándar donde el cálculo de cada n
 ![1](https://latex.codecogs.com/gif.latex?y%20%3D%20%5Cphi%28w.x%20&plus;%20b%29)
 
 
-donde ![](https://latex.codecogs.com/gif.latex?w) es un vector de peso k-dimensional, $b$ es un término de polarización escalar, ![](https://latex.codecogs.com/gif.latex?x) es un vector k-dimensional de características de entrada, ![](https://latex.codecogs.com/gif.latex?%5Cphi%28.%29) denota una no linealidad elemental tal como el rectificador ![](https://latex.codecogs.com/gif.latex?max%28.%2C%200%29), y $y$ denota la salida escalar de la neurona.
+donde ![](https://latex.codecogs.com/gif.latex?w) es un vector de peso k-dimensional, ![](https://latex.codecogs.com/gif.latex?b) es un término de polarización escalar, ![](https://latex.codecogs.com/gif.latex?x) es un vector k-dimensional de características de entrada, ![](https://latex.codecogs.com/gif.latex?%5Cphi%28.%29) denota una no linealidad elemental tal como el rectificador ![](https://latex.codecogs.com/gif.latex?max%28.%2C%200%29), y ![](https://latex.codecogs.com/gif.latex?y) denota la salida escalar de la neurona.
 
 Después de asociar una función de pérdida a una o más salidas neuronales, dicha red neuronal es comúnmente entrenada por descenso de gradiente estocástico en los parámetros ![](https://latex.codecogs.com/gif.latex?w), ![](https://latex.codecogs.com/gif.latex?b) de cada neurona.
 
-Con la intención de acelerar la convergencia de este procedimiento de optimización, la reparameterización de cada vector de peso $w$ en términos de un vector de parámetro $v$ y un parámetro escalar $g$ y realizar un descenso de gradiente estocástico con respecto a esos parámetros. La expresión del vector quedaría expresado de la siguiente forma:
+Con la intención de acelerar la convergencia de este procedimiento de optimización, la reparameterización de cada vector de peso ![](https://latex.codecogs.com/gif.latex?w) en términos de un vector de parámetro ![](https://latex.codecogs.com/gif.latex?v) y un parámetro escalar ![](https://latex.codecogs.com/gif.latex?g) y realizar un descenso de gradiente estocástico con respecto a esos parámetros. La expresión del vector quedaría expresado de la siguiente forma:
 
 ![](https://latex.codecogs.com/gif.latex?w%20%3D%20%5Cfrac%7Bg%7D%7B%7C%7Cv%7C%7C%7Dv)
 
